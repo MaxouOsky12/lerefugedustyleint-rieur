@@ -22,6 +22,10 @@
             --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
         }
 
+        html {
+            scroll-behavior: smooth; /* Permet le défilement fluide vers les produits */
+        }
+
         body {
             font-family: 'Manrope', sans-serif;
             background-color: var(--bg-body);
@@ -59,8 +63,83 @@
             color: white;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5em; margin: 0; }
-        .hero p { font-size: 1.2em; font-weight: 400; opacity: 0.9; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5em; margin: 0; text-align: center; }
+        .hero p { font-size: 1.2em; font-weight: 400; opacity: 0.9; text-align: center; padding: 0 20px;}
+
+        /* --- NOUVEAU : SECTION CAPTURE EMAIL --- */
+        .newsletter-section {
+            background: white;
+            max-width: 800px;
+            margin: -40px auto 40px auto; /* Remonte légèrement sur le Hero */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+            text-align: center;
+            border-top: 4px solid var(--gold-refuge);
+            z-index: 10;
+        }
+
+        .newsletter-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-refuge);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-section p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+
+        /* Style générique pour le formulaire (à adapter selon ton outil) */
+        .email-form-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        /* Si tu utilises un formulaire HTML brut, voici le style des inputs */
+        .my-input {
+            padding: 12px 20px;
+            border: 2px solid #eee;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 250px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1em;
+        }
+        
+        .my-btn-submit {
+            background-color: var(--accent-refuge);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1em;
+        }
+        .my-btn-submit:hover {
+            background-color: var(--gold-refuge);
+        }
+
+        .skip-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #999;
+            font-size: 0.85em;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+            cursor: pointer;
+        }
+        .skip-link:hover { color: var(--accent-refuge); border-bottom-color: var(--accent-refuge); }
 
         /* --- BARRE AMAZON --- */
         .amazon-bar {
@@ -166,6 +245,12 @@
             text-align: center;
             margin-top: 60px;
         }
+        
+        /* Media query pour le formulaire sur mobile */
+        @media (max-width: 600px) {
+            .newsletter-section { margin: 0; border-radius: 0; border-top: none; border-bottom: 4px solid var(--gold-refuge); }
+            .hero { height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -179,13 +264,26 @@
         <p>Sélection exclusive d'objets et mobiliers pour un refuge unique.</p>
     </div>
 
+    <section class="newsletter-section">
+        <h3>Rejoignez le Cercle Privé</h3>
+        <p>Recevez chaque semaine mes meilleures trouvailles déco et des codes promos exclusifs avant tout le monde.</p>
+        
+        <div class="email-form-container">
+            <form action="#" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; width:100%; justify-content:center;">
+                <input type="email" placeholder="Votre meilleure adresse email" class="my-input" required>
+                <button type="submit" class="my-btn-submit">Je m'inscris</button>
+            </form>
+        </div>
+        <a href="#selection" class="skip-link">Non merci, je veux juste voir la sélection Amazon &darr;</a>
+    </section>
+
     <div class="amazon-bar">
         <span><i class="fa-brands fa-amazon"></i> Partenaire Amazon Affilié</span>
         <span><i class="fa-solid fa-truck"></i> Livraison Gratuite avec Prime</span>
         <span><i class="fa-solid fa-lock"></i> Paiement Sécurisé</span>
     </div>
 
-    <div class="container">
+    <div class="container" id="selection">
         <div class="grid">
 
             <div class="card">
