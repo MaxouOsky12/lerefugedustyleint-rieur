@@ -86,16 +86,19 @@
         <h3>Rejoignez le Cercle Privé</h3>
         <p>Recevez chaque semaine mes meilleures trouvailles déco et codes promos.</p>
         
-        <form action="save.php" method="POST" class="email-form-container">
-            <div class="form-row">
-                <input type="email" name="user_email" placeholder="Votre meilleure adresse email" class="my-input" required>
-                <button type="submit" class="my-btn-submit">Je m'inscris</button>
-            </div>
-            <div class="rgpd-box">
-                <input type="checkbox" required>
-                <span>J'accepte que mon email soit stocké pour recevoir des sélections déco.</span>
-            </div>
-        </form>
+       <form action="https://formspree.io/f/xjgkwjel" method="POST" class="email-form-container">
+    <div class="form-row">
+        <input type="email" name="email" placeholder="Votre meilleure adresse email" class="my-input" required>
+        <button type="submit" class="my-btn-submit">Je m'inscris</button>
+    </div>
+    
+    <input type="hidden" name="_next" value="https://lerefugedustyleinterieur.vercel.app/#selection">
+    
+    <div class="rgpd-box">
+        <input type="checkbox" name="consentement" required>
+        <span>J'accepte que mon email soit utilisé pour recevoir des sélections déco.</span>
+    </div>
+</form>
 
         <a href="#selection" class="skip-link">Voir la sélection sans m'inscrire &darr;</a>
     </section>
