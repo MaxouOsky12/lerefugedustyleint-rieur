@@ -4,8 +4,7 @@
     <meta name="p:domain_verify" content="6c837c08b750a0daf9e6a68e8cad5d37"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sélection exclusive de décoration intérieure et mobilier.">
-    <title>Le Refuge du Style Intérieur - Sélection Privée</title>
+    <title>Le Refuge du Style Intérieur - Sélection Amazon</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -14,17 +13,14 @@
         :root {
             --bg-body: #f9f7f2; 
             --bg-card: #ffffff;
-            --text-dark: #2d2420;
+            --text-dark: #3a322d;
             --accent-refuge: #5d4037; 
             --gold-refuge: #c4a47c;
-            --amazon-yellow: #ffd814; /* Nouveau jaune Amazon plus moderne */
-            --amazon-hover: #f7ca00;
+            --amazon-yellow: #f0c14b;
+            --amazon-border: #a88734;
             --prime-blue: #00a8e1;
-            --shadow-soft: 0 15px 35px rgba(0,0,0,0.08);
-            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
         }
-
-        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Manrope', sans-serif;
@@ -34,394 +30,260 @@
             line-height: 1.6;
         }
 
-        /* --- HEADER STICKY --- */
+        /* --- HEADER BRANDING --- */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px 20px;
+            background: white;
+            padding: 30px 20px;
             text-align: center;
             border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .brand-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-size: 2.2em;
             font-weight: 900;
             color: var(--accent-refuge);
-            letter-spacing: -0.5px;
-            text-decoration: none;
+            letter-spacing: -1px;
         }
         .brand-logo span { color: var(--gold-refuge); }
 
         /* --- HERO --- */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1600&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1600&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            height: 400px;
+            height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
-            text-align: center;
-            padding: 0 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5em, 5vw, 4em); 
-            margin: 0 0 15px 0; 
-            line-height: 1.1;
-        }
-        .hero p { font-size: 1.3em; font-weight: 500; opacity: 0.95; max-width: 600px; }
-        .hero-btn {
-            margin-top: 25px;
-            padding: 12px 30px;
-            background: white;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 800;
-            border-radius: 30px;
-            transition: transform 0.3s;
-        }
-        .hero-btn:hover { transform: scale(1.05); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5em; margin: 0; }
+        .hero p { font-size: 1.2em; font-weight: 400; opacity: 0.9; }
 
-        /* --- TRUST BAR --- */
+        /* --- BARRE AMAZON --- */
         .amazon-bar {
             background: #232f3e;
             color: white;
-            padding: 15px;
+            padding: 12px;
             display: flex;
             justify-content: center;
-            gap: 40px;
-            font-size: 0.9em;
+            gap: 30px;
+            font-size: 0.85em;
             font-weight: 600;
             flex-wrap: wrap;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-        .amazon-bar div { display: flex; align-items: center; gap: 8px; }
         .amazon-bar i { color: #ff9900; }
 
-        /* --- GRID --- */
+        /* --- GRILLE PRODUITS --- */
         .container {
-            max-width: 1300px;
-            margin: 60px auto;
+            max-width: 1400px;
+            margin: 50px auto;
             padding: 0 20px;
-        }
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: var(--accent-refuge);
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        /* --- CARD DESIGN --- */
+        /* --- CARTE --- */
         .card {
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
-            position: relative;
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid #f0efeb;
         }
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* Badge "Meilleur choix" (Visuel uniquement) */
-        .badge-choice {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--text-dark);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.7em;
-            font-weight: 800;
-            z-index: 10;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+        .card:hover { transform: translateY(-8px); }
 
         .image-box {
-            height: 260px;
+            height: 280px;
             position: relative;
-            background: #fff;
-            overflow: hidden;
+            background: #fdfdfd;
         }
-        .image-box img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-            padding: 20px; 
-            box-sizing: border-box;
-            transition: transform 0.5s ease;
-        }
-        .card:hover .image-box img { transform: scale(1.05); }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; }
         
         .prime-tag {
             position: absolute;
             bottom: 10px;
-            left: 15px;
-            background: #fff;
-            padding: 4px 8px;
+            left: 10px;
+            background: white;
+            padding: 3px 8px;
             border-radius: 4px;
-            font-size: 0.75em;
+            font-size: 0.7em;
             font-weight: 800;
             color: var(--prime-blue);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         
-        .tag { 
-            color: var(--gold-refuge); 
-            font-size: 0.7em; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            margin-bottom: 10px; 
-        }
+        .tag { color: var(--gold-refuge); font-size: 0.75em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
         
-        .title { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.4em; 
-            margin: 0 0 15px 0; 
-            color: #1a1a1a; 
-            line-height: 1.3;
-        }
+        .title { font-family: 'Playfair Display', serif; font-size: 1.5em; margin: 0 0 10px 0; color: #1a1a1a; line-height: 1.3; }
+
+        .rating { color: #febd69; font-size: 0.85em; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+        .rating span { color: #777; font-weight: 400; }
 
         .price-section {
             margin-top: auto;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
             margin-bottom: 20px;
         }
-        .price-container { display: flex; flex-direction: column; }
-        .price { font-size: 1.6em; font-weight: 800; color: #b12704; } /* Couleur rouge prix Amazon */
-        .old-price { text-decoration: line-through; color: #888; font-size: 0.85em; }
+        .price { font-size: 1.8em; font-weight: 800; color: #111; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 0.9em; }
 
-        /* --- CTA BUTTON (PSYCHOLOGIE) --- */
-        @keyframes pulse-yellow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 216, 20, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 216, 20, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 216, 20, 0); }
-        }
-
+        /* BOUTON AMAZON */
         .btn-amazon {
-            background: var(--amazon-yellow);
+            background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+            border: 1px solid var(--amazon-border);
             color: #111;
-            padding: 16px;
-            border-radius: 30px; /* Bouton plus arrondi = plus cliquable */
+            padding: 14px;
+            border-radius: 8px;
             text-align: center;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1em;
-            transition: all 0.2s;
+            font-size: 0.9em;
+            transition: 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
+            gap: 8px;
         }
-        
-        .btn-amazon:hover { 
-            background: var(--amazon-hover); 
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        /* Animation subtile pour attirer l'attention */
-        .card:hover .btn-amazon {
-            animation: pulse-yellow 2s infinite;
-        }
+        .btn-amazon:hover { background: linear-gradient(to bottom, #f5d78e, #eeb933); }
 
         footer {
-            background: #2d2420;
+            background: #3a322d;
             color: #f9f7f2;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
-            margin-top: 80px;
-            border-top: 5px solid var(--gold-refuge);
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand-logo">le refuge<span>.</span></div>
+        <div class="brand-logo">le refuge<span>.</span>du style intérieur</div>
     </header>
 
     <div class="hero">
-        <h1>Transformez votre Intérieur</h1>
-        <p>Une sélection intemporelle pour un confort absolu.</p>
-        <a href="#selection" class="hero-btn">Découvrir la collection <i class="fa-solid fa-arrow-down"></i></a>
+        <h1>L'Art de se Sentir Chez Soi</h1>
+        <p>Sélection exclusive d'objets et mobiliers pour un refuge unique.</p>
     </div>
 
     <div class="amazon-bar">
-        <div><i class="fa-brands fa-amazon"></i> Sélection Officielle</div>
-        <div><i class="fa-solid fa-check-circle"></i> Stock Vérifié</div>
-        <div><i class="fa-solid fa-shield-halved"></i> Paiement Amazon</div>
+        <span><i class="fa-brands fa-amazon"></i> Partenaire Amazon Affilié</span>
+        <span><i class="fa-solid fa-truck"></i> Livraison Gratuite avec Prime</span>
+        <span><i class="fa-solid fa-lock"></i> Paiement Sécurisé</span>
     </div>
 
-    <div class="container" id="selection">
-        <h2 class="section-title">Les Incontournables du Moment</h2>
-        
+    <div class="container">
         <div class="grid">
 
             <div class="card">
-                <div class="badge-choice"><i class="fa-solid fa-star"></i> Top Vente</div>
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/81+or4Ac2NL._AC_SL1500_.jpg" alt="Canapé Galway" loading="lazy">
-                    <div class="prime-tag"><i class="fa-solid fa-check"></i> prime</div>
+                    <img src="https://m.media-amazon.com/images/I/81+or4Ac2NL._AC_SL1500_.jpg" alt="Canapé">
                 </div>
                 <div class="content">
-                    <div class="tag">Salon • Best-Seller</div>
+                    <div class="tag">Salon • Harmonieux</div>
                     <h2 class="title">Canapé d’Angle Galway Beige</h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="old-price">599,90€</span>
-                            <span class="price">549,90€</span>
-                        </div>
-                        <div style="color:#ffa41c; font-size:0.9em;"><i class="fa-solid fa-star"></i> 4.5/5</div>
+                        <span class="price">549,90€</span>
+                        <span class="old-price">599,90€</span>
                     </div>
-                    <a href="https://amzn.to/4aHFoaM" class="btn-amazon" target="_blank" rel="nofollow">
-                        Vérifier le stock <i class="fa-solid fa-chevron-right"></i>
-                    </a>
+                    <a href="https://amzn.to/4aHFoaM" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/81t5jMHvtsL._AC_SL1500_.jpg" alt="Canapé Meluti" loading="lazy">
-                    <div class="prime-tag"><i class="fa-solid fa-check"></i> prime</div>
+                    <img src="https://m.media-amazon.com/images/I/81t5jMHvtsL._AC_SL1500_.jpg" alt="Canapé">
                 </div>
                 <div class="content">
-                    <div class="tag">Confort • Premium</div>
+                    <div class="tag">Détente • Design</div>
                     <h2 class="title">Canapé d'angle Convertible MELUTI</h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="price">899,99€</span>
-                        </div>
+                        <span class="price">899,99€</span>
                     </div>
-                    <a href="https://amzn.to/3KLQv89" class="btn-amazon" target="_blank" rel="nofollow">
-                        Voir les disponibilités <i class="fa-solid fa-chevron-right"></i>
-                    </a>
+                    <a href="https://amzn.to/3KLQv89" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="badge-choice">Coup de Cœur</div>
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/81yBaaXlGFL._AC_SL1500_.jpg" alt="Buffet Lluvia" loading="lazy">
+                    <img src="https://m.media-amazon.com/images/I/81yBaaXlGFL._AC_SL1500_.jpg" alt="Meuble">
                 </div>
                 <div class="content">
-                    <div class="tag">Rangement • Design</div>
+                    <div class="tag">Mobilier • Chic</div>
                     <h2 class="title">Buffet Lluvia à 3 Portes</h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="price">185,99€</span>
-                        </div>
-                        <div style="color:#ffa41c; font-size:0.9em;"><i class="fa-solid fa-star"></i> 4.7/5</div>
+                        <span class="price">185,99€</span>
                     </div>
-                    <a href="https://amzn.to/4rXgkmt" class="btn-amazon" target="_blank" rel="nofollow">
-                        Profiter de l'offre <i class="fa-solid fa-cart-plus"></i>
-                    </a>
+                    <a href="https://amzn.to/4rXgkmt" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/812TgOFGQOL._AC_SL1500_.jpg" alt="Lit Complet" loading="lazy">
-                    <div class="prime-tag"><i class="fa-solid fa-check"></i> prime</div>
+                    <img src="https://m.media-amazon.com/images/I/812TgOFGQOL._AC_SL1500_.jpg">
                 </div>
                 <div class="content">
-                    <div class="tag">Nuit • Ambiance</div>
-                    <h2 class="title">Ensemble Lit Complet</h2>
+                    <div class="tag">Chambre • Ambiance</div>
+                    <h2 class="title">Ensemble Lit Complet pour Chambre</h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="price">474,97€</span>
-                        </div>
+                        <span class="price">474,97€</span>
                     </div>
-                    <a href="https://amzn.to/44xS40d" class="btn-amazon" target="_blank" rel="nofollow">
-                        Vérifier le prix <i class="fa-solid fa-chevron-right"></i>
-                    </a>
+                    <a href="https://amzn.to/44xS40d" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/71JpmLuq76L._AC_SL1500_.jpg" alt="Meuble Bain" loading="lazy">
+                    <img src="https://m.media-amazon.com/images/I/71JpmLuq76L._AC_SL1500_.jpg" alt="Meuble Salle de Bain">
                 </div>
                 <div class="content">
-                    <div class="tag">Salle de Bain</div>
-                    <h2 class="title">Meuble sous-lavabo Rimini</h2>
+                    <div class="tag">Rangement • Tirroir</div>
+                    <h2 class="title">Badplaats Meuble sous-lavabo Rimini</h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="price">219,00€</span>
-                        </div>
+                        <span class="price">219,00€</span>
                     </div>
-                    <a href="https://amzn.to/4qge7Rn" class="btn-amazon" target="_blank" rel="nofollow">
-                        Voir sur Amazon <i class="fa-solid fa-chevron-right"></i>
-                    </a>
+                    <a href="https://amzn.to/4qge7Rn" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/81nuyjFH+WL._AC_SL1500_.jpg" alt="Table Manger" loading="lazy">
-                    <div class="prime-tag"><i class="fa-solid fa-check"></i> prime</div>
+                    <img src="https://m.media-amazon.com/images/I/81nuyjFH+WL._AC_SL1500_.jpg" alt="Cuisine">
                 </div>
                 <div class="content">
-                    <div class="tag">Cuisine • Famille</div>
-                    <h2 class="title">Table à Manger Rectangle</h2>
+                    <div class="tag">Cuisine • Convivialité</div>
+                    <h2 class="title">Table de Salle à Manger Rectangle</h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="price">269,99€</span>
-                        </div>
+                        <span class="price">269,99€</span>
                     </div>
-                    <a href="https://amzn.to/4snPzI6" class="btn-amazon" target="_blank" rel="nofollow">
-                        Vérifier le stock <i class="fa-solid fa-chevron-right"></i>
-                    </a>
+                    <a href="https://amzn.to/4snPzI6" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="badge-choice">-10% Aujourd'hui</div>
                 <div class="image-box">
-                    <img src="https://m.media-amazon.com/images/I/712gLX2g7yL._AC_SL1500_.jpg" alt="Vases Céramique" loading="lazy">
-                    <div class="prime-tag"><i class="fa-solid fa-check"></i> prime</div>
+                    <img src="https://m.media-amazon.com/images/I/712gLX2g7yL._AC_SL1500_.jpg" alt="Vases">
                 </div>
                 <div class="content">
-                    <div class="tag">Déco • Tendance</div>
-                    <h2 class="title">Lot de 2 Vases Céramique</h2>
+                    <div class="tag">Décoration • Style</div>
+                    <h2 class="title">Lot de 2 vases en céramique Blanche </h2>
                     <div class="price-section">
-                        <div class="price-container">
-                            <span class="price">19,99€</span>
-                        </div>
-                        <div style="color:#ffa41c; font-size:0.9em;"><i class="fa-solid fa-star"></i> 4.8/5</div>
+                        <span class="price">19,99€</span>
                     </div>
-                    <a href="https://amzn.to/3YbQldi" class="btn-amazon" target="_blank" rel="nofollow">
-                        Ajouter au panier <i class="fa-solid fa-cart-plus"></i>
-                    </a>
+                    <a href="https://amzn.to/3YbQldi" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
                 </div>
             </div>
 
@@ -429,12 +291,11 @@
     </div>
 
     <footer>
-        <p class="brand-logo" style="color:white; font-size:1.5em; margin-bottom:10px;">le refuge<span>.</span></p>
-        <p style="font-size: 0.8em; max-width: 600px; margin: 0 auto 20px auto; opacity: 0.7; line-height:1.5;">
-            En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises. 
-            Les prix et disponibilités sont sujets à changement.
+        <p><strong>le refuge.du style intérieur</strong></p>
+        <p style="font-size: 0.8em; max-width: 600px; margin: 20px auto; opacity: 0.8;">
+            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises. Les liens présents sur cette page sont des liens d'affiliation.
         </p>
-        <p style="font-size: 0.7em; opacity: 0.4;">© 2025 Le Refuge du Style. Tous droits réservés.</p>
+        <p style="font-size: 0.7em; opacity: 0.5;">© 2025 Tous droits réservés.</p>
     </footer>
 
 </body>
