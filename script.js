@@ -1,4 +1,4 @@
-// Canvas fond particles + vague
+// Canvas fond particles + légère vague
 const canvas=document.getElementById("hero-bg");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
@@ -38,7 +38,7 @@ const appearOnScroll=new IntersectionObserver((entries,observer)=>{
 },appearOptions);
 faders.forEach(fader=>appearOnScroll.observe(fader));
 
-// Hero title letters animation (orange)
+// Hero title letters animation (Signalix orange)
 const heroTitle=document.getElementById("hero-title");
 const text=heroTitle.innerText;
 heroTitle.innerText="";
