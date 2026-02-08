@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Signalix</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signalix — Business Actions</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,48 +11,84 @@
   <nav class="nav">
     <div class="logo">Signalix</div>
     <select id="lang">
-      <option value="en">EN</option>
       <option value="fr">FR</option>
+      <option value="en">EN</option>
       <option value="es">ES</option>
+      <option value="ar">AR</option>
+      <option value="zh">ZH</option>
     </select>
   </nav>
 
-  <section class="hero">
-    <h1 data-i18n="title">Decisions that move revenue</h1>
-    <p data-i18n="subtitle">
-      We turn complex business signals into clear actions.
-    </p>
-    <a href="https://calendly.com/TON-LIEN" target="_blank" class="cta" data-i18n="cta">
-      Book a call
-    </a>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 data-i18n="title">Signalix</h1>
+      <p data-i18n="subtitle">Nous transformons les signaux complexes en actions concrètes et exploitables.</p>
+      <div class="cta-container">
+        <a href="https://calendly.com/TON-LIEN" class="btn" data-i18n="btn_call">Prendre un RDV</a>
+        <a href="mailto:contact@signalix.com" class="btn secondary" data-i18n="btn_email">Envoyer un email</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ce que nous faisons -->
+  <section class="services">
+    <h2 data-i18n="services_title">Ce que nous faisons</h2>
+    <div class="cards">
+      <div class="card">
+        <h3 data-i18n="service1_title">Analyse des données</h3>
+        <p data-i18n="service1_text">Nous détectons les opportunités cachées et priorisons les actions.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="service2_title">Plans d’action</h3>
+        <p data-i18n="service2_text">Nous livrons des stratégies prêtes à exécuter pour votre entreprise.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="service3_title">Suivi et impact</h3>
+        <p data-i18n="service3_text">Nous suivons l’impact et adaptons en continu pour maximiser le ROI.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="block">
-    <h2 data-i18n="problem_title">The problem</h2>
-    <p data-i18n="problem_text">
-      Companies have data everywhere, but clarity nowhere.
-    </p>
+  <!-- Comment ça marche -->
+  <section class="process">
+    <h2 data-i18n="process_title">Comment ça marche</h2>
+    <div class="timeline">
+      <div class="step" data-i18n="step1">1. Appel stratégique de 30 min</div>
+      <div class="step" data-i18n="step2">2. Analyse ciblée</div>
+      <div class="step" data-i18n="step3">3. Actions concrètes livrées</div>
+      <div class="step" data-i18n="step4">4. Mesure de l’impact</div>
+    </div>
   </section>
 
-  <section class="block dark">
-    <h2 data-i18n="solution_title">Our solution</h2>
-    <p data-i18n="solution_text">
-      Signalix delivers prioritized, ready-to-execute actions.
-    </p>
+  <!-- Impact -->
+  <section class="impact">
+    <h2 data-i18n="impact_title">Pourquoi c’est important</h2>
+    <div class="stats">
+      <div class="stat">
+        <h3>+30%</h3>
+        <p data-i18n="stat1">Croissance potentielle du CA</p>
+      </div>
+      <div class="stat">
+        <h3>-50%</h3>
+        <p data-i18n="stat2">Temps de décision réduit</p>
+      </div>
+      <div class="stat">
+        <h3>100%</h3>
+        <p data-i18n="stat3">Clarté dans les actions à exécuter</p>
+      </div>
+    </div>
   </section>
 
-  <section class="block">
-    <h2 data-i18n="how_title">How it works</h2>
-    <ul>
-      <li data-i18n="step1">30 min strategic call</li>
-      <li data-i18n="step2">Targeted analysis</li>
-      <li data-i18n="step3">Clear actions delivered</li>
-      <li data-i18n="step4">Measurable impact</li>
-    </ul>
+  <!-- CTA final -->
+  <section class="cta-final">
+    <h2 data-i18n="cta_final">Prêt à accélérer vos décisions ?</h2>
+    <a href="https://calendly.com/TON-LIEN" class="btn" data-i18n="btn_call_final">Prendre un RDV</a>
+    <a href="mailto:contact@signalix.com" class="btn secondary" data-i18n="btn_email_final">Envoyer un email</a>
   </section>
 
   <footer>
-    © Signalix
+    <p>© Signalix</p>
   </footer>
 
   <script src="script.js"></script>
