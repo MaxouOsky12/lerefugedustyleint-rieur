@@ -39,18 +39,15 @@ const subtitle = document.querySelector(".hero-subtitle");
 const ctas = document.querySelector(".cta-container");
 
 function animateHero(){
-  // Apparition + zoom
   heroTitle.style.opacity = "1";
   heroTitle.style.transform = "scale(1)";
   heroTitle.style.transition = "all 1s ease-out";
 
-  // léger bounce
   setTimeout(()=>{
     heroTitle.style.transform = "scale(1.05)";
     setTimeout(()=>heroTitle.style.transform = "scale(1)", 300);
   }, 1000);
 
-  // apparition sous-titre et CTA après
   setTimeout(()=>{
     subtitle.style.opacity = "1";
     subtitle.style.transform = "translateY(0)";
