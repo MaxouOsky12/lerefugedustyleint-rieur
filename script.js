@@ -5,8 +5,8 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 const particles=[];
-for(let i=0;i<80;i++){
-  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.6,dy:(Math.random()-0.5)*0.6});
+for(let i=0;i<100;i++){
+  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});
 }
 
 function animateParticles(){
@@ -26,20 +26,19 @@ function animateParticles(){
 }
 animateParticles();
 
-// Fade-in scroll & diverse animations
-const faders=document.querySelectorAll('.hero p,.cta-container,section,.step,.card,.cta-final h2');
+// Fade-in scroll
+const faders=document.querySelectorAll('.hero-subtitle,.cta-container,section,.step,.card,.cta-final h2');
 const appearOptions={threshold:0.3};
 const appearOnScroll=new IntersectionObserver((entries,observer)=>{
   entries.forEach(entry=>{
     if(!entry.isIntersecting) return;
-    // Alternance scale + fade
     entry.target.classList.add('appear');
     observer.unobserve(entry.target);
   });
 },appearOptions);
 faders.forEach(fader=>appearOnScroll.observe(fader));
 
-// Hero title letters animation avec scaling
+// Hero title letters animation
 const heroTitle=document.getElementById("hero-title");
 const text=heroTitle.innerText;
 heroTitle.innerText="";
@@ -48,16 +47,19 @@ function animateHero(){
   if(i<text.length){
     heroTitle.innerHTML+=`<span>${text[i]}</span>`;
     i++;
-    setTimeout(animateHero,80);
+    setTimeout(animateHero,100);
   } else {
     document.querySelectorAll('#hero-title span').forEach((span,index)=>{
       setTimeout(()=>{
         span.style.opacity='1';
         span.style.transform='translateY(0) scale(1)';
-      },index*100);
+        span.style.transition='all 0.5s ease';
+      },index*150);
     });
-    document.querySelector(".hero p").classList.add("appear");
-    document.querySelector(".cta-container").classList.add("appear");
+    setTimeout(()=>{
+      document.querySelector(".hero-subtitle").classList.add("appear");
+      document.querySelector(".cta-container").classList.add("appear");
+    }, text.length*150);
   }
 }
 animateHero();
