@@ -1,215 +1,60 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Refuge du Style Intérieur - Sélection Amazon</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-    <style>
-        :root {
-            --bg-body: #f9f7f2; 
-            --bg-card: #ffffff;
-            --text-dark: #3a322d;
-            --accent-refuge: #5d4037; 
-            --gold-refuge: #c4a47c;
-            --amazon-yellow: #f0c14b;
-            --amazon-border: #a88734;
-            --prime-blue: #00a8e1;
-            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Manrope', sans-serif; background-color: var(--bg-body); color: var(--text-dark); margin: 0; line-height: 1.6; }
-
-        header { background: white; padding: 30px 20px; text-align: center; border-bottom: 1px solid #eee; }
-        .brand-logo { font-family: 'Playfair Display', serif; font-size: 2.2em; font-weight: 900; color: var(--accent-refuge); }
-        .brand-logo span { color: var(--gold-refuge); }
-
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1600&auto=format&fit=crop');
-            background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5em; margin: 0; text-align: center; }
-
-        .newsletter-section {
-            background: white; max-width: 800px; margin: -40px auto 40px auto; padding: 40px; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; text-align: center; border-top: 4px solid var(--gold-refuge); z-index: 10;
-        }
-        .newsletter-section h3 { font-family: 'Playfair Display', serif; color: var(--accent-refuge); font-size: 1.8em; margin: 0 0 10px 0; }
-
-        .email-form-container { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
-        .form-row { display: flex; gap: 10px; flex-wrap: wrap; width: 100%; justify-content: center; }
-        
-        .my-input { padding: 12px 20px; border: 2px solid #eee; border-radius: 6px; flex: 1; min-width: 250px; font-size: 1em; }
-        .my-btn-submit { background-color: var(--accent-refuge); color: white; border: none; padding: 12px 30px; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1em; }
-        .my-btn-submit:hover { background-color: var(--gold-refuge); }
-
-        .rgpd-box { font-size: 0.75em; color: #888; display: flex; align-items: flex-start; gap: 8px; max-width: 450px; text-align: left; }
-        .skip-link { display: inline-block; margin-top: 15px; color: #999; font-size: 0.85em; text-decoration: none; border-bottom: 1px dotted #999; }
-
-        .amazon-bar { background: #232f3e; color: white; padding: 12px; display: flex; justify-content: center; gap: 30px; font-size: 0.85em; flex-wrap: wrap; }
-        .amazon-bar i { color: #ff9900; }
-
-        .container { max-width: 1400px; margin: 50px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-
-        .card { background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-soft); transition: transform 0.3s ease; display: flex; flex-direction: column; border: 1px solid #f0efeb; }
-        .card:hover { transform: translateY(-8px); }
-        .image-box { height: 280px; background: #fdfdfd; }
-        .image-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .tag { color: var(--gold-refuge); font-size: 0.75em; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
-        .title { font-family: 'Playfair Display', serif; font-size: 1.4em; margin: 0 0 10px 0; color: #1a1a1a; min-height: 2.6em; }
-        .price-section { margin-top: auto; display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
-        .price { font-size: 1.8em; font-weight: 800; color: #111; }
-        .old-price { text-decoration: line-through; color: #888; font-size: 0.9em; }
-
-        .btn-amazon { background: linear-gradient(to bottom, #f7dfa5, #f0c14b); border: 1px solid var(--amazon-border); color: #111; padding: 14px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; }
-
-        footer { background: #3a322d; color: #f9f7f2; padding: 50px 20px; text-align: center; margin-top: 60px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signalix</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="brand-logo">le refuge<span>.</span>du style intérieur</div>
-    </header>
+  <nav class="nav">
+    <div class="logo">Signalix</div>
+    <select id="lang">
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="es">ES</option>
+    </select>
+  </nav>
 
-    <div class="hero">
-        <h1>L'Art de se Sentir Chez Soi</h1>
-    </div>
+  <section class="hero">
+    <h1 data-i18n="title">Decisions that move revenue</h1>
+    <p data-i18n="subtitle">
+      We turn complex business signals into clear actions.
+    </p>
+    <a href="https://calendly.com/TON-LIEN" target="_blank" class="cta" data-i18n="cta">
+      Book a call
+    </a>
+  </section>
 
-    <section class="newsletter-section">
-        <h3>Rejoignez le Cercle Privé</h3>
-        <p>Recevez chaque semaine mes meilleures trouvailles déco et codes promos.</p>
-        
-       <form action="https://formspree.io/f/xjgkwjel" method="POST" class="email-form-container">
-    <div class="form-row">
-        <input type="email" name="email" placeholder="Votre meilleure adresse email" class="my-input" required>
-        <button type="submit" class="my-btn-submit">Je m'inscris</button>
-    </div>
-    
-    <input type="hidden" name="_next" value="https://lerefugedustyleinterieur.vercel.app/#selection">
-    
-    <div class="rgpd-box">
-        <input type="checkbox" name="consentement" required>
-        <span>J'accepte que mon email soit utilisé pour recevoir des sélections déco.</span>
-    </div>
-</form>
+  <section class="block">
+    <h2 data-i18n="problem_title">The problem</h2>
+    <p data-i18n="problem_text">
+      Companies have data everywhere, but clarity nowhere.
+    </p>
+  </section>
 
-        <a href="#selection" class="skip-link">Voir la sélection sans m'inscrire &darr;</a>
-    </section>
+  <section class="block dark">
+    <h2 data-i18n="solution_title">Our solution</h2>
+    <p data-i18n="solution_text">
+      Signalix delivers prioritized, ready-to-execute actions.
+    </p>
+  </section>
 
-    <div class="amazon-bar">
-        <span><i class="fa-brands fa-amazon"></i> Partenaire Amazon Affilié</span>
-        <span><i class="fa-solid fa-truck"></i> Livraison Gratuite avec Prime</span>
-    </div>
+  <section class="block">
+    <h2 data-i18n="how_title">How it works</h2>
+    <ul>
+      <li data-i18n="step1">30 min strategic call</li>
+      <li data-i18n="step2">Targeted analysis</li>
+      <li data-i18n="step3">Clear actions delivered</li>
+      <li data-i18n="step4">Measurable impact</li>
+    </ul>
+  </section>
 
-    <div class="container" id="selection">
-        <div class="grid" id="product">
-            
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/81+or4Ac2NL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Salon • Harmonieux</div>
-                    <h2 class="title">Canapé d’Angle Galway Beige</h2>
-                    <div class="price-section"><span class="price">549,90€</span><span class="old-price">599,90€</span></div>
-                    <a href="https://amzn.to/4aHFoaM" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
+  <footer>
+    © Signalix
+  </footer>
 
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/81t5jMHvtsL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Détente • Design</div>
-                    <h2 class="title">Canapé d'angle Convertible MELUTI</h2>
-                    <div class="price-section"><span class="price">899,99€</span></div>
-                    <a href="https://amzn.to/3KLQv89" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/5101X2gslNL._AC_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Confort • Bois</div>
-                    <h2 class="title">Bureau Moderne en Bois</h2>
-                    <div class="price-section"><span class="price">276,73€</span></div>
-                    <a href="https://amzn.to/4qmgaE2" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/61v1foIz3AL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Bureau • Industriel</div>
-                    <h2 class="title">Ergotopia Desktopia Pro X Bureau</h2>
-                    <div class="price-section"><span class="price">1079,00€</span></div>
-                    <a href="https://amzn.to/4jEOiIK" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/81yBaaXlGFL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Mobilier • Chic</div>
-                    <h2 class="title">Buffet Lluvia à 3 Portes</h2>
-                    <div class="price-section"><span class="price">185,99€</span></div>
-                    <a href="https://amzn.to/4rXgkmt" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/812TgOFGQOL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Chambre • Ambiance</div>
-                    <h2 class="title">Ensemble Lit Complet Moderne</h2>
-                    <div class="price-section"><span class="price">474,97€</span></div>
-                    <a href="https://amzn.to/44xS40d" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/71JpmLuq76L._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Rangement • Tirroir</div>
-                    <h2 class="title">Meuble sous-lavabo Rimini</h2>
-                    <div class="price-section"><span class="price">219,00€</span></div>
-                    <a href="https://amzn.to/4qge7Rn" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/81nuyjFH+WL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Cuisine • Convivialité</div>
-                    <h2 class="title">Table de Salle à Manger Rectangle</h2>
-                    <div class="price-section"><span class="price">269,99€</span></div>
-                    <a href="https://amzn.to/4snPzI6" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="image-box"><img src="https://m.media-amazon.com/images/I/712gLX2g7yL._AC_SL1500_.jpg"></div>
-                <div class="content">
-                    <div class="tag">Décoration • Style</div>
-                    <h2 class="title">Lot de 2 vases en céramique</h2>
-                    <div class="price-section"><span class="price">19,99€</span></div>
-                    <a href="https://amzn.to/3YbQldi" class="btn-amazon">Voir sur Amazon <i class="fa-brands fa-amazon"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p><strong>le refuge.du style intérieur</strong></p>
-        <p style="font-size: 0.8em; max-width: 600px; margin: 20px auto; opacity: 0.8;">
-            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
-        </p>
-        <p style="font-size: 0.7em; opacity: 0.5;">© 2025 Tous droits réservés.</p>
-    </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
