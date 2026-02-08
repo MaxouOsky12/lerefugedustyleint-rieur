@@ -1,12 +1,12 @@
-// Hero background particles subtil
+// Canvas fond particles + vague
 const canvas=document.getElementById("hero-bg");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 const particles=[];
-for(let i=0;i<100;i++){
-  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});
+for(let i=0;i<120;i++){
+  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.6,dy:(Math.random()-0.5)*0.6});
 }
 
 function animateParticles(){
@@ -19,14 +19,14 @@ function animateParticles(){
     if(p.y<0)p.y=canvas.height;
     ctx.beginPath();
     ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle='rgba(255,255,255,0.05)';
+    ctx.fillStyle='rgba(255,255,255,0.06)';
     ctx.fill();
   });
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
 
-// Fade-in scroll
+// Fade-in scroll & animations
 const faders=document.querySelectorAll('.hero-subtitle,.cta-container,section,.step,.card,.cta-final h2');
 const appearOptions={threshold:0.3};
 const appearOnScroll=new IntersectionObserver((entries,observer)=>{
@@ -38,7 +38,7 @@ const appearOnScroll=new IntersectionObserver((entries,observer)=>{
 },appearOptions);
 faders.forEach(fader=>appearOnScroll.observe(fader));
 
-// Hero title letters animation
+// Hero title letters animation (orange)
 const heroTitle=document.getElementById("hero-title");
 const text=heroTitle.innerText;
 heroTitle.innerText="";
@@ -47,13 +47,13 @@ function animateHero(){
   if(i<text.length){
     heroTitle.innerHTML+=`<span>${text[i]}</span>`;
     i++;
-    setTimeout(animateHero,100);
+    setTimeout(animateHero,120);
   } else {
     document.querySelectorAll('#hero-title span').forEach((span,index)=>{
       setTimeout(()=>{
         span.style.opacity='1';
-        span.style.transform='translateY(0) scale(1)';
-        span.style.transition='all 0.5s ease';
+        span.style.transform='translateY(0) scale(1) rotate(0deg)';
+        span.style.transition='all 0.6s ease';
       },index*150);
     });
     setTimeout(()=>{
