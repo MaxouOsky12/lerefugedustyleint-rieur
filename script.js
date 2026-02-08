@@ -1,12 +1,12 @@
-// Canvas fond particles + légère vague
+// Canvas fond particles
 const canvas=document.getElementById("hero-bg");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 const particles=[];
-for(let i=0;i<120;i++){
-  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.6,dy:(Math.random()-0.5)*0.6});
+for(let i=0;i<150;i++){
+  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.8,dy:(Math.random()-0.5)*0.8});
 }
 
 function animateParticles(){
@@ -26,8 +26,8 @@ function animateParticles(){
 }
 animateParticles();
 
-// Fade-in scroll & animations
-const faders=document.querySelectorAll('.hero-subtitle,.cta-container,section,.step,.card,.cta-final h2');
+// Fade-in scroll
+const faders=document.querySelectorAll('.hero-subtitle,.cta-container,section,.step,.card,.expert-card,.cta-final h2');
 const appearOptions={threshold:0.3};
 const appearOnScroll=new IntersectionObserver((entries,observer)=>{
   entries.forEach(entry=>{
@@ -38,7 +38,7 @@ const appearOnScroll=new IntersectionObserver((entries,observer)=>{
 },appearOptions);
 faders.forEach(fader=>appearOnScroll.observe(fader));
 
-// Hero title letters animation (Signalix orange)
+// Hero title animation
 const heroTitle=document.getElementById("hero-title");
 const text=heroTitle.innerText;
 heroTitle.innerText="";
