@@ -6,22 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ================= VARIABLES ================= */
 :root {
   --orange: #ff5a00;
   --orange-strong: #ff3c00;
   --orange-glow: rgba(255,90,0,.6);
   --orange-soft: rgba(255,90,0,.18);
-
   --dark: #070709;
   --dark-soft: #121216;
-  --gray: #1c1c22;
-
   --text: #f5f5f5;
   --muted: #a5a5a5;
 }
 
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -35,7 +30,30 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= GLOBAL ================= */
+/* ===== STICKY BRAND ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(12px);
+  padding: 18px 8%;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+header.visible {
+  opacity: 1;
+}
+
+header span {
+  color: var(--orange);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+/* ===== GLOBAL ===== */
 section {
   padding: 120px 8%;
   max-width: 1400px;
@@ -52,7 +70,7 @@ section.visible {
 
 h2 {
   font-size: clamp(2.4rem, 4vw, 3.2rem);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   letter-spacing: -0.04em;
   background: linear-gradient(90deg,#fff,var(--orange),#fff);
   -webkit-background-clip: text;
@@ -65,7 +83,7 @@ p {
   max-width: 900px;
 }
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -95,9 +113,7 @@ p {
     opacity: 1;
     transform: scale(1.12);
     filter: blur(0);
-    text-shadow:
-      0 0 25px var(--orange-glow),
-      0 0 80px rgba(255,90,0,.45);
+    text-shadow: 0 0 80px rgba(255,90,0,.45);
   }
   100% {
     transform: scale(1);
@@ -136,20 +152,7 @@ p {
   animation-delay: 1.9s;
 }
 
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(circle, rgba(255,255,255,.35), transparent 70%);
-  opacity: 0;
-  transition: opacity .4s ease;
-}
-
-.cta:hover::before {
-  opacity: 1;
-}
-
-/* ================= GRID / CARDS ================= */
+/* ===== GRID ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
@@ -162,24 +165,9 @@ p {
   padding: 45px;
   border-radius: 22px;
   border: 1px solid rgba(255,255,255,.06);
-  position: relative;
-  overflow: hidden;
   opacity: 0;
   transform: translateY(50px) scale(.96);
   transition: all .9s cubic-bezier(.16,1,.3,1);
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -60%;
-  background: radial-gradient(circle,var(--orange-soft),transparent 70%);
-  opacity: 0;
-  transition: opacity .6s ease;
-}
-
-.card:hover::before {
-  opacity: 1;
 }
 
 .card.show {
@@ -193,7 +181,7 @@ p {
   font-size: 1.4rem;
 }
 
-/* ================= TABLE ================= */
+/* ===== TABLE ===== */
 table {
   width: 100%;
   margin-top: 50px;
@@ -202,19 +190,18 @@ table {
   border-radius: 16px;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(40px) scale(.98);
+  transform: translateY(40px);
   transition: all 1s ease;
 }
 
 table.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 th, td {
   padding: 20px;
   border-bottom: 1px solid #222;
-  font-size: .95rem;
 }
 
 th {
@@ -222,58 +209,86 @@ th {
   color: var(--orange);
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer {
   padding: 80px 8%;
   background: #000;
   text-align: center;
   color: var(--muted);
 }
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .hero p { font-size: 1.2rem; }
-}
 </style>
 </head>
 
 <body>
 
+<header id="brand">
+  <span>SIGNALIX</span>
+</header>
+
 <section class="hero visible">
   <div class="logo">SIGNALIX</div>
-  <p>Intelligence opérationnelle & optimisation de performance<br>pour PME, ETI et grandes entreprises.</p>
+  <p>
+    Nous aidons les PME, ETI et grandes entreprises<br>
+    à structurer leurs décisions, leurs données et leurs performances.
+  </p>
   <a class="cta" href="#contact">
     Échanger sur votre stratégie et vos leviers de performance
   </a>
 </section>
 
 <section>
-  <h2>Un partenaire stratégique</h2>
-  <p>Signalix accompagne les entreprises structurées souhaitant transformer leurs données et process en leviers de croissance mesurables.</p>
+  <h2>Pourquoi Signalix</h2>
+  <p>
+    Trop d’entreprises prennent encore des décisions complexes
+    avec des informations partielles, dispersées ou mal interprétées.
+    Signalix intervient comme un partenaire stratégique pour transformer
+    ces données en décisions claires, mesurables et actionnables.
+  </p>
 </section>
 
 <section>
-  <h2>Notre expertise</h2>
+  <h2>Notre approche</h2>
   <div class="grid">
-    <div class="card"><h3>PME en croissance</h3><p>Structuration, pilotage et automatisation des décisions.</p></div>
-    <div class="card"><h3>ETI & groupes</h3><p>Tableaux stratégiques et vision transverse.</p></div>
-    <div class="card"><h3>Dirigeants</h3><p>Indicateurs clairs et décisions exploitables.</p></div>
+    <div class="card">
+      <h3>Analyse globale</h3>
+      <p>
+        Nous analysons l’ensemble de votre organisation :
+        flux, outils, équipes, indicateurs et objectifs business.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Structuration</h3>
+      <p>
+        Mise en place de tableaux de pilotage,
+        indicateurs clés et modèles de décision adaptés à votre réalité.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Suivi & optimisation</h3>
+      <p>
+        Accompagnement dans le temps pour ajuster,
+        optimiser et sécuriser les performances.
+      </p>
+    </div>
   </div>
 </section>
 
 <section>
-  <h2>Indicateurs pilotés</h2>
+  <h2>Exemples d’indicateurs pilotés</h2>
   <table>
-    <tr><th>Indicateur</th><th>Description</th><th>Impact</th></tr>
-    <tr><td>Marge</td><td>Rentabilité par activité</td><td>+10 à +25%</td></tr>
-    <tr><td>Décision</td><td>Temps entre donnée & action</td><td>-30 à -60%</td></tr>
-    <tr><td>Performance</td><td>Alignement équipes</td><td>Clarté stratégique</td></tr>
+    <tr><th>Indicateur</th><th>Objectif</th><th>Bénéfice</th></tr>
+    <tr><td>Marge opérationnelle</td><td>Rentabilité claire</td><td>Décisions fiables</td></tr>
+    <tr><td>Temps de décision</td><td>Réactivité</td><td>Avantage compétitif</td></tr>
+    <tr><td>Performance équipes</td><td>Alignement</td><td>Efficacité durable</td></tr>
   </table>
 </section>
 
 <section id="contact">
   <h2>Entrer en contact</h2>
-  <p>Chaque collaboration débute par un échange stratégique.</p>
+  <p>
+    Signalix collabore avec un nombre limité d’entreprises.
+    Chaque mission débute par un échange stratégique confidentiel.
+  </p>
   <a class="cta" href="https://calendar.google.com" target="_blank">
     Discuter de votre situation et de vos objectifs
   </a>
@@ -284,27 +299,27 @@ footer {
 </footer>
 
 <script>
-/* ===== SECTION REVEAL ===== */
+/* Section reveal */
 const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("visible");
   });
 },{threshold:.15});
 
 document.querySelectorAll("section").forEach(s => sectionObserver.observe(s));
 
-/* ===== CARD STAGGER ===== */
+/* Cards */
 const cardObserver = new IntersectionObserver(entries => {
-  entries.forEach((entry,i)=>{
-    if(entry.isIntersecting){
-      setTimeout(()=>entry.target.classList.add("show"),i*120);
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add("show"),i*120);
     }
   });
 },{threshold:.2});
 
 document.querySelectorAll(".card").forEach(c=>cardObserver.observe(c));
 
-/* ===== TABLE ===== */
+/* Table */
 const table = document.querySelector("table");
 if(table){
   const tObs = new IntersectionObserver(e=>{
@@ -312,6 +327,11 @@ if(table){
   },{threshold:.2});
   tObs.observe(table);
 }
+
+/* Show sticky logo after hero */
+setTimeout(()=>{
+  document.getElementById("brand").classList.add("visible");
+},2200);
 </script>
 
 </body>
