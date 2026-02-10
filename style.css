@@ -1,101 +1,47 @@
-/* ===== ANIMATIONS SIGNALIX ===== */
-.logo {
-  font-size: clamp(5.5rem, 14vw, 11rem);
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  color: var(--orange);
-  opacity: 0;
-  transform: scale(0.75);
-  animation: signalixHero 2.2s cubic-bezier(.2,.8,.2,1) forwards;
-}
+<script>
+  /* SECTION REVEAL */
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-@keyframes signalixHero {
-  0% {
-    opacity: 0;
-    transform: scale(0.75) translateY(40px);
-    filter: blur(12px);
+  document.querySelectorAll("section").forEach(sec =>
+    sectionObserver.observe(sec)
+  );
+
+  /* CARD STAGGER */
+  const cardObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("show");
+          }, i * 120);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll(".card").forEach(card =>
+    cardObserver.observe(card)
+  );
+
+  /* TABLE */
+  const table = document.querySelector("table");
+  if (table) {
+    const tableObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        table.classList.add("show");
+      }
+    }, { threshold: 0.2 });
+
+    tableObserver.observe(table);
   }
-  60% {
-    opacity: 1;
-    transform: scale(1.08);
-    filter: blur(0);
-    text-shadow: 0 0 40px rgba(255,106,0,.55);
-  }
-  100% {
-    transform: scale(1);
-    text-shadow: 0 0 18px rgba(255,106,0,.25);
-  }
-}
-
-/* ===== HERO TEXT ===== */
-.hero p,
-.hero .cta {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: heroReveal 1.2s ease forwards;
-}
-
-.hero p { animation-delay: 1.4s; }
-.hero .cta { animation-delay: 1.7s; }
-
-@keyframes heroReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== CTA HALO (APPLE STYLE) ===== */
-.cta {
-  position: relative;
-  overflow: hidden;
-}
-
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(circle, rgba(255,106,0,.35), transparent 70%);
-  opacity: 0;
-  transition: opacity .4s ease;
-}
-
-.cta:hover::before {
-  opacity: 1;
-}
-
-/* ===== SECTION REVEAL ===== */
-section {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1.2s cubic-bezier(.2,.8,.2,1);
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== CARDS STAGGER ===== */
-.card {
-  opacity: 0;
-  transform: translateY(50px) scale(.96);
-  transition: all .9s cubic-bezier(.2,.8,.2,1);
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* ===== TABLE DEPTH ===== */
-table {
-  opacity: 0;
-  transform: translateY(40px) scale(.98);
-  transition: all 1s ease;
-}
-
-table.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+</script>
