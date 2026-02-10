@@ -28,30 +28,6 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HEADER / LOGO ================= */
-header{
-  position:sticky;
-  top:0;
-  width:100%;
-  z-index:1000;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(12px);
-  padding:18px 8%;
-  opacity:0;
-  transition:opacity .6s ease;
-}
-
-header.visible{
-  opacity:1;
-}
-
-header span{
-  color:var(--orange);
-  font-size:2rem;
-  font-weight:900;
-  letter-spacing:-0.04em;
-}
-
 /* ================= HERO ================= */
 .hero{
   min-height:100vh;
@@ -63,6 +39,7 @@ header span{
   position:relative;
 }
 
+/* GROS LOGO CENTRAL */
 .hero-logo{
   font-size:clamp(6rem,15vw,12rem);
   font-weight:900;
@@ -86,6 +63,7 @@ header span{
     text-shadow:0 0 80px rgba(255,106,0,.45);
   }
   100%{
+    opacity:1;
     transform:scale(1);
     text-shadow:0 0 18px rgba(255,106,0,.35);
   }
@@ -222,11 +200,6 @@ footer{
 
 <body>
 
-<!-- HEADER STICKY -->
-<header id="header">
-  <span>SIGNALIX</span>
-</header>
-
 <!-- HERO -->
 <section class="hero visible">
   <div class="hero-logo">SIGNALIX</div>
@@ -281,11 +254,6 @@ footer{
 </footer>
 
 <script>
-/* HEADER APPARAÎT APRÈS ANIMATION */
-setTimeout(()=>{
-  document.getElementById("header").classList.add("visible");
-},2400);
-
 /* SECTIONS REVEAL */
 const sectionObserver=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
