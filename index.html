@@ -2,241 +2,171 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Signalix — Intelligence & Performance Business</title>
+<title>SIGNALIX</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ================= VARIABLES ================= */
-:root {
-  --orange: #ff5a00;
-  --orange-strong: #ff3c00;
-  --orange-glow: rgba(255,90,0,.6);
-  --orange-soft: rgba(255,90,0,.18);
-
-  --dark: #070709;
-  --dark-soft: #121216;
-
-  --text: #f5f5f5;
-  --muted: #a5a5a5;
+:root{
+  --orange:#ff6a00;
+  --orange-strong:#ff3d00;
+  --bg:#050506;
+  --text:#f2f2f2;
+  --muted:#9a9a9a;
 }
 
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
 }
 
-body {
-  background: radial-gradient(circle at top, #141417, #000);
-  color: var(--text);
-  overflow-x: hidden;
+body{
+  background:radial-gradient(circle at top,#141417,#000);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-/* ================= GLOBAL ================= */
-section {
-  padding: 120px 8%;
-  max-width: 1400px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1.2s cubic-bezier(.16,1,.3,1);
+/* ================= LOGO CENTRAL PERMANENT ================= */
+.logo-fixed{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(.7);
+  font-size:clamp(6rem,15vw,12rem);
+  font-weight:900;
+  letter-spacing:-0.08em;
+  color:var(--orange);
+  opacity:0;
+  z-index:1000;
+  pointer-events:none;
+  animation:logoIntro 2.6s cubic-bezier(.16,1,.3,1) forwards;
 }
 
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h2 {
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  margin-bottom: 25px;
-  letter-spacing: -0.04em;
-  background: linear-gradient(90deg,#fff,var(--orange),#fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-p {
-  font-size: 1.1rem;
-  color: var(--muted);
-  max-width: 900px;
-}
-
-/* ================= HERO ================= */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* GROS LOGO — ANIME PUIS RESTE */
-.logo {
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 900;
-  letter-spacing: -0.07em;
-  color: var(--orange);
-  opacity: 0;
-  transform: scale(0.7);
-  animation: signalixHero 2.4s cubic-bezier(.16,1,.3,1) forwards;
-  will-change: transform, opacity;
-}
-
-@keyframes signalixHero {
-  0% {
-    opacity: 0;
-    transform: scale(0.7) translateY(60px);
-    filter: blur(14px);
+@keyframes logoIntro{
+  0%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.6);
+    filter:blur(16px);
   }
-  55% {
-    opacity: 1;
-    transform: scale(1.12);
-    filter: blur(0);
-    text-shadow:
-      0 0 80px rgba(255,90,0,.45);
+  55%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1.15);
+    filter:blur(0);
+    text-shadow:0 0 120px rgba(255,106,0,.6);
   }
-  100% {
-    transform: scale(1);
-    text-shadow:
-      0 0 18px rgba(255,90,0,.35);
+  100%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+    text-shadow:0 0 40px rgba(255,106,0,.45);
   }
 }
 
-/* PHRASE PLUS BASSE */
-.hero p {
-  margin-top: 60px;
-  font-size: 1.4rem;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: heroReveal 1.2s ease forwards;
-  animation-delay: 1.6s;
+/* ================= CONTENT ================= */
+.main{
+  position:relative;
+  z-index:1;
 }
 
-@keyframes heroReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+section{
+  min-height:100vh;
+  padding:160px 10%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:30px;
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h1,h2{
+  font-size:clamp(2.4rem,4vw,3.4rem);
+  letter-spacing:-0.04em;
+}
+
+p{
+  max-width:900px;
+  font-size:1.15rem;
+  color:var(--muted);
+  line-height:1.6;
 }
 
 /* CTA */
-.cta {
-  margin-top: 60px;
-  padding: 18px 46px;
-  border-radius: 50px;
-  background: linear-gradient(135deg,var(--orange),var(--orange-strong));
-  color: #000;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-decoration: none;
-  box-shadow: 0 25px 70px rgba(255,90,0,.55);
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: heroReveal 1.2s ease forwards;
-  animation-delay: 1.9s;
+.cta{
+  margin-top:40px;
+  align-self:flex-start;
+  padding:18px 44px;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--orange),var(--orange-strong));
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 30px 80px rgba(255,106,0,.55);
+  transition:transform .4s ease,box-shadow .4s ease;
 }
 
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(circle, rgba(255,255,255,.35), transparent 70%);
-  opacity: 0;
-  transition: opacity .4s ease;
+.cta:hover{
+  transform:translateY(-3px);
+  box-shadow:0 45px 120px rgba(255,106,0,.75);
 }
 
-.cta:hover::before {
-  opacity: 1;
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
 }
 
-/* ================= GRID / CARDS ================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 40px;
-  margin-top: 70px;
+.card{
+  background:linear-gradient(180deg,#1b1b22,#0c0c10);
+  padding:45px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.06);
+  opacity:0;
+  transform:translateY(40px) scale(.96);
+  transition:all .9s cubic-bezier(.16,1,.3,1);
 }
 
-.card {
-  background: linear-gradient(180deg,#1b1b22,#0f0f14);
-  padding: 45px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.06);
-  opacity: 0;
-  transform: translateY(50px) scale(.96);
-  transition: all .9s cubic-bezier(.16,1,.3,1);
+.card.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+.card h3{
+  color:var(--orange);
+  margin-bottom:15px;
 }
 
-.card h3 {
-  color: var(--orange);
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-}
-
-/* ================= TABLE ================= */
-table {
-  width: 100%;
-  margin-top: 50px;
-  border-collapse: collapse;
-  background: var(--dark-soft);
-  border-radius: 16px;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-table.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-th, td {
-  padding: 20px;
-  border-bottom: 1px solid #222;
-}
-
-th {
-  background: #15151b;
-  color: var(--orange);
-}
-
-/* ================= FOOTER ================= */
-footer {
-  padding: 80px 8%;
-  background: #000;
-  text-align: center;
-  color: var(--muted);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .hero p { font-size: 1.2rem; }
+/* FOOTER */
+footer{
+  padding:120px 10%;
+  text-align:center;
+  color:var(--muted);
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero visible">
-  <div class="logo">SIGNALIX</div>
+<!-- LOGO TOUJOURS LÀ -->
+<div class="logo-fixed">SIGNALIX</div>
 
+<div class="main">
+
+<section class="visible">
+  <h1>Intelligence stratégique & performance business</h1>
   <p>
-    Nous aidons les PME, ETI et grandes entreprises<br>
-    à structurer leurs décisions, leurs données et leurs performances.
+    Signalix accompagne les entreprises dans la structuration
+    de leurs décisions, données et stratégies afin de transformer
+    l’information brute en avantage compétitif mesurable.
   </p>
-
   <a class="cta" href="#contact">
     Discuter de votre situation et de vos objectifs
   </a>
@@ -245,10 +175,9 @@ footer {
 <section>
   <h2>Pourquoi Signalix</h2>
   <p>
-    Trop d’entreprises prennent des décisions stratégiques
-    avec des informations incomplètes ou mal structurées.
-    Signalix agit comme un partenaire stratégique pour transformer
-    ces données en décisions claires, mesurables et actionnables.
+    Les entreprises perdent de la valeur non par manque d’idées,
+    mais par manque de lisibilité. Signalix agit comme un système
+    de pilotage : analyse, structuration, suivi et optimisation continue.
   </p>
 </section>
 
@@ -256,103 +185,57 @@ footer {
   <h2>Notre approche</h2>
   <div class="grid">
     <div class="card">
-      <h3>Analyse globale</h3>
-      <p>
-        Analyse complète de votre organisation :
-        flux, outils, équipes, indicateurs et objectifs business.
-      </p>
+      <h3>Analyse stratégique</h3>
+      <p>Lecture complète de l’activité, des flux, des indicateurs et des risques.</p>
     </div>
     <div class="card">
       <h3>Structuration</h3>
-      <p>
-        Création de tableaux de pilotage,
-        indicateurs clés et modèles de décision adaptés à votre réalité.
-      </p>
+      <p>Mise en place de modèles décisionnels et tableaux de pilotage clairs.</p>
     </div>
     <div class="card">
-      <h3>Suivi & optimisation</h3>
-      <p>
-        Accompagnement continu pour ajuster,
-        sécuriser et améliorer durablement les performances.
-      </p>
+      <h3>Optimisation continue</h3>
+      <p>Suivi long terme pour sécuriser et amplifier la performance.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Indicateurs pilotés</h2>
-  <table>
-    <tr>
-      <th>Indicateur</th>
-      <th>Objectif</th>
-      <th>Bénéfice</th>
-    </tr>
-    <tr>
-      <td>Marge opérationnelle</td>
-      <td>Rentabilité claire</td>
-      <td>Décisions fiables</td>
-    </tr>
-    <tr>
-      <td>Temps de décision</td>
-      <td>Réactivité</td>
-      <td>Avantage compétitif</td>
-    </tr>
-    <tr>
-      <td>Performance équipes</td>
-      <td>Alignement</td>
-      <td>Efficacité durable</td>
-    </tr>
-  </table>
-</section>
-
 <section id="contact">
-  <h2>Entrer en contact</h2>
+  <h2>Échange stratégique</h2>
   <p>
-    Signalix collabore avec un nombre limité d’entreprises.
-    Chaque mission débute par un échange stratégique confidentiel.
+    Chaque collaboration débute par un échange confidentiel
+    afin de comprendre vos enjeux réels et définir un cadre clair.
   </p>
-  <a class="cta" href="https://calendar.google.com" target="_blank">
-    Discuter de votre situation et de vos objectifs
+  <a class="cta" href="#">
+    Planifier un appel
   </a>
 </section>
 
 <footer>
-  © Signalix — Intelligence & Performance Business
+  © Signalix — Tous droits réservés
 </footer>
 
+</div>
+
 <script>
-/* SECTION REVEAL */
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add("visible");
+/* SECTIONS */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting)x.target.classList.add("visible");
   });
 },{threshold:.15});
 
-document.querySelectorAll("section").forEach(s =>
-  sectionObserver.observe(s)
-);
+document.querySelectorAll("section").forEach(s=>obs.observe(s));
 
-/* CARD STAGGER */
-const cardObserver = new IntersectionObserver(entries => {
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add("show"),i*120);
+/* CARDS */
+const obsCard=new IntersectionObserver(e=>{
+  e.forEach((x,i)=>{
+    if(x.isIntersecting){
+      setTimeout(()=>x.target.classList.add("show"),i*120);
     }
   });
 },{threshold:.2});
 
-document.querySelectorAll(".card").forEach(c =>
-  cardObserver.observe(c)
-);
-
-/* TABLE */
-const table = document.querySelector("table");
-if(table){
-  const tObs = new IntersectionObserver(e=>{
-    if(e[0].isIntersecting) table.classList.add("show");
-  },{threshold:.2});
-  tObs.observe(table);
-}
+document.querySelectorAll(".card").forEach(c=>obsCard.observe(c));
 </script>
 
 </body>
