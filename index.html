@@ -1,106 +1,300 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signalix — Insights pour PME & Grandes Entreprises</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Signalix — Intelligence & Performance Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --dark: #0b0b0d;
+      --gray: #1a1a1f;
+      --text: #eaeaea;
+      --muted: #9a9a9a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #151518, #000);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 120px 8%;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 900px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: clamp(4rem, 12vw, 9rem);
+      font-weight: 900;
+      color: var(--orange);
+      animation: appear 1.6s ease forwards;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .hero p {
+      margin-top: 25px;
+      font-size: 1.4rem;
+    }
+
+    .cta {
+      margin-top: 50px;
+      padding: 18px 38px;
+      font-size: 1.1rem;
+      border-radius: 40px;
+      background: var(--orange);
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 60px rgba(255,106,0,.4);
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #1b1b21, #0f0f13);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid #23232b;
+    }
+
+    .card h3 {
+      color: var(--orange);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      margin-top: 40px;
+      border-collapse: collapse;
+      background: #0f0f13;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 18px;
+      border-bottom: 1px solid #222;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #141419;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 80px 8%;
+      background: #000;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    @media(max-width: 768px) {
+      h2 { font-size: 2.2rem; }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <canvas id="hero-bg"></canvas>
-  <h1 id="hero-title">SIGNALIX</h1>
-  <p class="hero-subtitle">Insights concrets pour PME et grandes entreprises, pour booster vos revenus et gagner du temps.</p>
-  <div class="cta-container">
-    <a href="https://calendly.com/TON-LIEN" class="btn">Prendre un RDV</a>
-    <a href="mailto:contact@signalix.com" class="btn secondary">Nous contacter</a>
-  </div>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="logo">SIGNALIX</div>
+    <p>
+      Intelligence opérationnelle & optimisation de performance<br>
+      pour PME, ETI et grandes entreprises.
+    </p>
+    <a class="cta" href="#contact">Prendre rendez-vous</a>
+  </section>
 
-<!-- MÉTHODE -->
-<section class="method">
-  <div class="container">
-    <h2>Notre méthode</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>Consultation stratégique</h3>
-        <p>Analyse rapide pour comprendre vos objectifs et votre marché.</p>
+  <!-- POSITIONNEMENT -->
+  <section>
+    <h2>Un partenaire stratégique, pas un simple prestataire</h2>
+    <p>
+      Signalix accompagne les entreprises structurées qui souhaitent transformer leurs données,
+      leurs process et leur organisation en leviers de croissance mesurables.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>PME en croissance</h3>
+        <p>
+          Structuration, automatisation, pilotage des performances et décisions basées sur des données fiables.
+        </p>
       </div>
-      <div class="step">
-        <h3>Analyse micro-données</h3>
-        <p>Collecte et interprétation de données invisibles pour identifier les actions à fort impact.</p>
+      <div class="card">
+        <h3>ETI & grandes entreprises</h3>
+        <p>
+          Analyse avancée, tableaux de pilotage stratégiques, optimisation transverse des opérations.
+        </p>
       </div>
-      <div class="step">
-        <h3>Plan d’action concret</h3>
-        <p>Plan clair et priorisé directement exploitable pour votre entreprise.</p>
-      </div>
-      <div class="step">
-        <h3>Suivi et optimisation</h3>
-        <p>Mesure de l’impact et ajustements pour maximiser les résultats.</p>
+      <div class="card">
+        <h3>Dirigeants & comités</h3>
+        <p>
+          Vision claire, indicateurs exploitables et recommandations directement actionnables.
+        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CE QUE NOUS OFFRONS -->
-<section class="offer">
-  <div class="container">
-    <h2>Ce que nous apportons</h2>
-    <div class="cards">
-      <div class="card card-1">
-        <h3>+30% potentiel de revenus</h3>
-        <p>Recommandations claires et prioritaires pour augmenter rapidement votre chiffre d’affaires.</p>
+  <!-- MÉTHODE -->
+  <section>
+    <h2>Notre méthode Signalix</h2>
+    <p>
+      Une approche structurée, mesurable et orientée résultats, utilisée sur des environnements complexes.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1. Audit & compréhension</h3>
+        <p>
+          Analyse des flux, outils, données, organisation et objectifs business.
+        </p>
       </div>
-      <div class="card card-2">
-        <h3>-50% temps de décision</h3>
-        <p>Actions concrètes et faciles à appliquer pour gagner du temps.</p>
+      <div class="card">
+        <h3>2. Structuration & modélisation</h3>
+        <p>
+          Création de modèles clairs, tableaux de bord et scénarios décisionnels.
+        </p>
       </div>
-      <div class="card card-3">
-        <h3>Clarté et fiabilité</h3>
-        <p>Décisions efficaces grâce à des données sérieuses et mesurables.</p>
+      <div class="card">
+        <h3>3. Activation & suivi</h3>
+        <p>
+          Mise en place opérationnelle, suivi des performances et ajustements continus.
+        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERTISE STRUCTURÉE -->
-<section class="experience">
-  <div class="container">
-    <h2>Notre expertise</h2>
-    <div class="expert-cards">
-      <div class="expert-card">
-        <h3>Data Intelligence</h3>
-        <p>Analyse avancée des données invisibles pour identifier les opportunités concrètes.</p>
+  <!-- EXEMPLES CONCRETS -->
+  <section>
+    <h2>Exemples d’indicateurs pilotés</h2>
+    <p>
+      Voici des exemples typiques de tableaux utilisés dans nos accompagnements.
+    </p>
+
+    <table>
+      <tr>
+        <th>Indicateur</th>
+        <th>Description</th>
+        <th>Impact</th>
+      </tr>
+      <tr>
+        <td>Marge opérationnelle</td>
+        <td>Analyse fine des coûts et rentabilité par activité</td>
+        <td>+10 à +25 %</td>
+      </tr>
+      <tr>
+        <td>Cycle de décision</td>
+        <td>Temps moyen entre données et action</td>
+        <td>-30 à -60 %</td>
+      </tr>
+      <tr>
+        <td>Performance des équipes</td>
+        <td>Suivi clair des objectifs et résultats</td>
+        <td>Alignement stratégique</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- POURQUOI -->
+  <section>
+    <h2>Pourquoi Signalix fonctionne</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Vision systémique</h3>
+        <p>
+          Nous ne regardons pas un indicateur isolé, mais l’ensemble du système.
+        </p>
       </div>
-      <div class="expert-card">
-        <h3>Optimisation business</h3>
-        <p>Plan d’action priorisé pour maximiser le chiffre d’affaires et réduire le temps de décision.</p>
+      <div class="card">
+        <h3>Décisions basées sur le réel</h3>
+        <p>
+          Pas d’intuition floue : des données claires, exploitables et compréhensibles.
+        </p>
       </div>
-      <div class="expert-card">
-        <h3>Suivi & performance</h3>
-        <p>Mesure de l’impact et ajustements continus pour garantir des résultats mesurables.</p>
+      <div class="card">
+        <h3>Impact mesurable</h3>
+        <p>
+          Chaque action est reliée à un résultat concret et suivi dans le temps.
+        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA FINAL -->
-<section class="cta-final">
-  <div class="container">
-    <h2>Prêt à transformer vos données en actions ?</h2>
-    <a href="https://calendly.com/TON-LIEN" class="btn">Prendre un RDV</a>
-    <a href="mailto:contact@signalix.com" class="btn secondary">Nous contacter</a>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Entrer en contact</h2>
+    <p>
+      Signalix travaille avec un nombre limité de partenaires.
+      Chaque collaboration débute par un échange stratégique.
+    </p>
+    <a class="cta" href="https://calendar.google.com" target="_blank">Planifier un appel</a>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© Signalix 2026 — Pour PME et grandes entreprises</p>
-</footer>
+  <footer>
+    <p>© Signalix — Intelligence & Performance Business</p>
+  </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
