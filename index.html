@@ -9,12 +9,10 @@
 :root{
   --orange:#ff6a00;
   --orange-strong:#ff3d00;
-  --bg:#050506;
   --text:#f2f2f2;
   --muted:#9a9a9a;
 }
 
-/* RESET */
 *{
   margin:0;
   padding:0;
@@ -28,7 +26,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -36,54 +34,34 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  position:relative;
 }
 
-/* GROS LOGO CENTRAL */
 .hero-logo{
   font-size:clamp(6rem,15vw,12rem);
   font-weight:900;
   letter-spacing:-0.07em;
   color:var(--orange);
   opacity:0;
-  transform:scale(0.7);
+  transform:scale(.7);
   animation:logoAnim 2.4s cubic-bezier(.16,1,.3,1) forwards;
 }
 
 @keyframes logoAnim{
-  0%{
-    opacity:0;
-    transform:scale(0.7) translateY(60px);
-    filter:blur(14px);
-  }
-  55%{
-    opacity:1;
-    transform:scale(1.12);
-    filter:blur(0);
-    text-shadow:0 0 80px rgba(255,106,0,.45);
-  }
-  100%{
-    opacity:1;
-    transform:scale(1);
-    text-shadow:0 0 18px rgba(255,106,0,.35);
-  }
+  0%{opacity:0; transform:scale(.7) translateY(60px); filter:blur(14px);}
+  55%{opacity:1; transform:scale(1.12); filter:blur(0);}
+  100%{opacity:1; transform:scale(1);}
 }
 
-/* Phrase sous logo */
 .hero p{
   margin-top:60px;
-  font-size:1.4rem;
+  font-size:1.35rem;
+  color:var(--muted);
   opacity:0;
-  transform:translateY(30px);
-  animation:heroText 1.2s ease forwards;
-  animation-delay:1.6s;
+  transform:translateY(20px);
+  animation:fadeUp 1s ease forwards;
+  animation-delay:1.5s;
 }
 
-@keyframes heroText{
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* CTA */
 .cta{
   margin-top:60px;
   padding:18px 46px;
@@ -91,18 +69,19 @@ body{
   background:linear-gradient(135deg,var(--orange),var(--orange-strong));
   color:#000;
   font-weight:600;
-  font-size:1.1rem;
   text-decoration:none;
   box-shadow:0 25px 70px rgba(255,106,0,.55);
-  position:relative;
-  overflow:hidden;
   opacity:0;
-  transform:translateY(30px);
-  animation:heroText 1.2s ease forwards;
-  animation-delay:1.9s;
+  transform:translateY(20px);
+  animation:fadeUp 1s ease forwards;
+  animation-delay:1.8s;
 }
 
-/* ================= SECTIONS ================= */
+@keyframes fadeUp{
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* SECTIONS */
 section{
   padding:120px 8%;
   max-width:1400px;
@@ -118,12 +97,10 @@ section.visible{
 }
 
 h2{
-  font-size:clamp(2.4rem,4vw,3.2rem);
+  font-size:clamp(2.4rem,4vw,3.1rem);
   margin-bottom:25px;
   letter-spacing:-0.04em;
-  background:linear-gradient(90deg,#fff,var(--orange),#fff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#fff;
 }
 
 p{
@@ -133,31 +110,32 @@ p{
   line-height:1.6;
 }
 
-/* CARDS */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:40px;
+  margin-top:40px;
 }
 
 .card{
   background:linear-gradient(180deg,#1b1b22,#0f0f14);
-  padding:45px;
+  padding:40px;
   border-radius:22px;
   border:1px solid rgba(255,255,255,.06);
   opacity:0;
-  transform:translateY(50px) scale(.96);
-  transition:all .9s cubic-bezier(.16,1,.3,1);
+  transform:translateY(40px);
+  transition:.8s;
 }
 
 .card.show{
   opacity:1;
-  transform:translateY(0) scale(1);
+  transform:translateY(0);
 }
 
 .card h3{
   color:var(--orange);
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 /* TABLE */
@@ -169,8 +147,8 @@ table{
   border-radius:16px;
   overflow:hidden;
   opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease;
+  transform:translateY(30px);
+  transition:1s;
 }
 
 table.show{
@@ -179,33 +157,37 @@ table.show{
 }
 
 th,td{
-  padding:20px;
+  padding:18px;
   border-bottom:1px solid #222;
+  text-align:left;
 }
 
 th{
-  background:#15151b;
+  background:#18181f;
   color:var(--orange);
 }
 
-/* FOOTER */
+/* CONTACT */
+.contact-cta{
+  margin-top:55px; /* IMPORTANT : bouton plus bas */
+}
+
 footer{
   padding:80px 8%;
-  background:#000;
   text-align:center;
   color:var(--muted);
+  background:#000;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero visible">
   <div class="hero-logo">SIGNALIX</div>
   <p>
-    Nous aidons les PME, ETI et grandes entreprises<br>
-    à structurer leurs décisions et performances.
+    Structuration stratégique, lecture de performance<br>
+    et optimisation décisionnelle pour entreprises.
   </p>
   <a class="cta" href="#contact">
     Discuter de votre situation et de vos objectifs
@@ -213,66 +195,96 @@ footer{
 </section>
 
 <section>
-  <h2>Pourquoi Signalix</h2>
+  <h2>Positionnement</h2>
   <p>
-    Signalix transforme vos données en décisions actionnables,
-    sécurisant votre croissance et optimisant vos performances.
+    Signalix accompagne les PME, ETI et organisations en croissance
+    dans la clarification de leurs décisions et indicateurs critiques.
+    Notre objectif n’est pas de multiplier les outils, mais de rendre
+    l’activité lisible, pilotable et mesurable.
   </p>
 </section>
 
 <section>
-  <h2>Notre approche</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Analyse stratégique</h3>
-      <p>Lecture complète des flux, outils, équipes et indicateurs.</p>
-    </div>
-    <div class="card">
-      <h3>Structuration</h3>
-      <p>Tableaux de bord et modèles de décision clairs et adaptés.</p>
-    </div>
-    <div class="card">
-      <h3>Optimisation continue</h3>
-      <p>Suivi long terme pour sécuriser et améliorer la performance.</p>
-    </div>
-  </div>
+  <h2>Résultats typiquement observés</h2>
+  <p>
+    Les impacts varient selon la structure et le contexte.
+    Nous intervenons principalement sur la lisibilité, la cohérence
+    des décisions et la réduction des pertes invisibles.
+  </p>
+
+  <table>
+    <tr>
+      <th>Dimension</th>
+      <th>Situation fréquente</th>
+      <th>Effet recherché</th>
+    </tr>
+    <tr>
+      <td>Décision stratégique</td>
+      <td>Choix basés sur intuition ou données partielles</td>
+      <td>Vision structurée & scénarios clairs</td>
+    </tr>
+    <tr>
+      <td>Performance opérationnelle</td>
+      <td>Temps perdu, redondances, inefficiences</td>
+      <td>Rationalisation & priorisation</td>
+    </tr>
+    <tr>
+      <td>Lecture des indicateurs</td>
+      <td>Données dispersées ou peu exploitables</td>
+      <td>Tableaux de pilotage exploitables</td>
+    </tr>
+    <tr>
+      <td>Risque & dérives</td>
+      <td>Problèmes détectés tardivement</td>
+      <td>Détection & anticipation</td>
+    </tr>
+  </table>
 </section>
 
 <section id="contact">
-  <h2>Échange stratégique</h2>
+  <h2>Cadre d’intervention</h2>
   <p>
-    Chaque mission débute par un échange confidentiel pour définir
-    vos besoins et objectifs.
+    Signalix ne promet pas de “miracles” ni de croissance artificielle.
+    L’approche consiste à structurer les décisions et réduire les pertes
+    systémiques. Les résultats reposent sur des mécanismes rationnels :
+    clarification, priorisation et cohérence opérationnelle.
   </p>
-  <a class="cta" href="https://calendar.google.com" target="_blank">
-    Discuter de votre situation et de vos objectifs
-  </a>
+
+  <p style="margin-top:25px">
+    Chaque collaboration débute par un échange afin d’évaluer la situation,
+    les contraintes et la pertinence réelle d’une intervention.
+  </p>
+
+  <div class="contact-cta">
+    <a class="cta" href="https://calendar.google.com" target="_blank">
+      Discuter de votre situation et de vos objectifs
+    </a>
+  </div>
 </section>
 
 <footer>
-  © Signalix — Intelligence & Performance Business
+  © Signalix — Structuration & Intelligence Décisionnelle
 </footer>
 
 <script>
-/* SECTIONS REVEAL */
-const sectionObserver=new IntersectionObserver(entries=>{
+const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting) e.target.classList.add("visible");
   });
 },{threshold:.15});
-document.querySelectorAll("section").forEach(s=>sectionObserver.observe(s));
 
-/* CARDS STAGGER */
-const cardObserver=new IntersectionObserver(entries=>{
+document.querySelectorAll("section").forEach(s=>obs.observe(s));
+
+const cardObs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{
     if(e.isIntersecting){
       setTimeout(()=>e.target.classList.add("show"),i*120);
     }
   });
 },{threshold:.2});
-document.querySelectorAll(".card").forEach(c=>cardObserver.observe(c));
 
-/* TABLE */
+document.querySelectorAll(".card").forEach(c=>cardObs.observe(c));
+
 const table=document.querySelector("table");
 if(table){
   const tObs=new IntersectionObserver(e=>{
