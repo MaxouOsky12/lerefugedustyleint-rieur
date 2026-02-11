@@ -47,9 +47,22 @@ body{
 }
 
 @keyframes logoAnim{
-  0%{opacity:0; transform:scale(.7) translateY(60px); filter:blur(14px);}
-  55%{opacity:1; transform:scale(1.12); filter:blur(0);}
-  100%{opacity:1; transform:scale(1);}
+  0%{
+    opacity:0;
+    transform:scale(.7) translateY(60px);
+    filter:blur(14px);
+  }
+  55%{
+    opacity:1;
+    transform:scale(1.12);
+    filter:blur(0);
+    text-shadow:0 0 80px rgba(255,106,0,.45);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+    text-shadow:0 0 18px rgba(255,106,0,.35);
+  }
 }
 
 .hero p{
@@ -75,6 +88,12 @@ body{
   transform:translateY(20px);
   animation:fadeUp 1s ease forwards;
   animation-delay:1.8s;
+  transition:.35s;
+}
+
+.cta:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 35px 90px rgba(255,106,0,.65);
 }
 
 @keyframes fadeUp{
@@ -96,11 +115,22 @@ section.visible{
   transform:translateY(0);
 }
 
+/* TITRES PREMIUM */
 h2{
   font-size:clamp(2.4rem,4vw,3.1rem);
   margin-bottom:25px;
   letter-spacing:-0.04em;
-  color:#fff;
+
+  background:linear-gradient(
+    90deg,
+    #ffffff,
+    #ff6a00,
+    #ffb067,
+    #ffffff
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 p{
@@ -110,41 +140,13 @@ p{
   line-height:1.6;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:40px;
-  margin-top:40px;
-}
-
-.card{
-  background:linear-gradient(180deg,#1b1b22,#0f0f14);
-  padding:40px;
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.06);
-  opacity:0;
-  transform:translateY(40px);
-  transition:.8s;
-}
-
-.card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.card h3{
-  color:var(--orange);
-  margin-bottom:12px;
-}
-
 /* TABLE */
 table{
   width:100%;
-  margin-top:50px;
+  margin-top:55px;
   border-collapse:collapse;
   background:#121216;
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
   opacity:0;
   transform:translateY(30px);
@@ -157,7 +159,7 @@ table.show{
 }
 
 th,td{
-  padding:18px;
+  padding:20px;
   border-bottom:1px solid #222;
   text-align:left;
 }
@@ -169,7 +171,7 @@ th{
 
 /* CONTACT */
 .contact-cta{
-  margin-top:55px; /* IMPORTANT : bouton plus bas */
+  margin-top:60px;
 }
 
 footer{
@@ -199,17 +201,18 @@ footer{
   <p>
     Signalix accompagne les PME, ETI et organisations en croissance
     dans la clarification de leurs décisions et indicateurs critiques.
-    Notre objectif n’est pas de multiplier les outils, mais de rendre
-    l’activité lisible, pilotable et mesurable.
+    L’objectif est de rendre l’activité lisible, pilotable et mesurable,
+    sans complexifier inutilement les structures existantes.
   </p>
 </section>
 
 <section>
   <h2>Résultats typiquement observés</h2>
   <p>
-    Les impacts varient selon la structure et le contexte.
-    Nous intervenons principalement sur la lisibilité, la cohérence
-    des décisions et la réduction des pertes invisibles.
+    Les effets varient selon la maturité de l’organisation.
+    Les interventions visent principalement la cohérence décisionnelle,
+    la réduction des pertes systémiques et l’amélioration de la lecture
+    stratégique.
   </p>
 
   <table>
@@ -220,13 +223,13 @@ footer{
     </tr>
     <tr>
       <td>Décision stratégique</td>
-      <td>Choix basés sur intuition ou données partielles</td>
-      <td>Vision structurée & scénarios clairs</td>
+      <td>Choix basés sur intuition ou signaux partiels</td>
+      <td>Vision structurée & scénarios rationnels</td>
     </tr>
     <tr>
       <td>Performance opérationnelle</td>
-      <td>Temps perdu, redondances, inefficiences</td>
-      <td>Rationalisation & priorisation</td>
+      <td>Inefficiences invisibles & temps perdu</td>
+      <td>Rationalisation & alignement</td>
     </tr>
     <tr>
       <td>Lecture des indicateurs</td>
@@ -244,15 +247,16 @@ footer{
 <section id="contact">
   <h2>Cadre d’intervention</h2>
   <p>
-    Signalix ne promet pas de “miracles” ni de croissance artificielle.
-    L’approche consiste à structurer les décisions et réduire les pertes
-    systémiques. Les résultats reposent sur des mécanismes rationnels :
-    clarification, priorisation et cohérence opérationnelle.
+    Signalix repose sur des mécanismes rationnels : clarification,
+    structuration et cohérence des décisions. Aucune promesse
+    irréaliste n’est formulée ; la valeur provient de la réduction
+    des frictions et d’une meilleure lisibilité stratégique.
   </p>
 
   <p style="margin-top:25px">
-    Chaque collaboration débute par un échange afin d’évaluer la situation,
-    les contraintes et la pertinence réelle d’une intervention.
+    Chaque collaboration débute par un échange afin d’évaluer
+    la situation, les contraintes et la pertinence réelle
+    d’une intervention.
   </p>
 
   <div class="contact-cta">
@@ -267,6 +271,7 @@ footer{
 </footer>
 
 <script>
+/* SECTIONS REVEAL */
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting) e.target.classList.add("visible");
@@ -275,16 +280,7 @@ const obs=new IntersectionObserver(entries=>{
 
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
 
-const cardObs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add("show"),i*120);
-    }
-  });
-},{threshold:.2});
-
-document.querySelectorAll(".card").forEach(c=>cardObs.observe(c));
-
+/* TABLE ANIM */
 const table=document.querySelector("table");
 if(table){
   const tObs=new IntersectionObserver(e=>{
